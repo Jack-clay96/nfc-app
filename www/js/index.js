@@ -35,7 +35,5 @@ function updateDisplay() {
             alert("Error adding NDEF listener " + JSON.stringify(error));
         }
     );
-},
-        
 }
 
