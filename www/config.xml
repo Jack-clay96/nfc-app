@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml 
+ID is seen by phone - same name might cause issue-->
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "mob.app.dev.storage"
+        version   = "1.0.0">
+
+    <name>NFC Management</name>
+
+    <description>
+        Motorbike eventr application for users to keep track of events.
+    </description>
+
+    <author href="worcester.ac.uk" email="claj2_14@uni.worc.ac.uk">
+        Jack Clay
+    </author>
+
+    <preference name="phonegap-version" value="cli-7.0.1" />
+	
+    <preference name="permissions"                value="none"/>   
+	
+	<access origin="*"/>
+   	<plugin name="cordova-plugin-whitelist" version="1" />
+    <gap:plugin name="phonegap-nfc" source="npm" /> <!--NFC -->
+    
+</widget>
