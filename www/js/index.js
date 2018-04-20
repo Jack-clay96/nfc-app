@@ -17,7 +17,7 @@ function updateDisplay() {
    // Read NDEF formatted NFC Tags
     $( "#read" ).click(function() {
         console.log("Button clicked");
-        alert("Waiting for NDEF tag");
+        location.href="#nfcscan";
         
     nfc.addNdefListener (
         function (nfcEvent) {
@@ -39,8 +39,7 @@ function updateDisplay() {
             alert("Error adding NDEF listener " + JSON.stringify(error));
         }
     );
-    });
-        
+});     
     
    /* //Write to NFC tag
     $( "#write" ).click(function() {

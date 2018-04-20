@@ -13,7 +13,7 @@
     <script src="js/index.js"></script> 
 </head>
     
-<body>
+<body onload="onDeviceReady()" >
     
     
 <!--NFC SCANNING -->
@@ -27,6 +27,10 @@
         <button id="write">Write</button>
     
     </div>
+</div>
+    
+<div data-role="page" id="nfcscan" class = "BG">
+    <h1> Waiting for nfc scan</h1>
 </div>
 
 </body>
