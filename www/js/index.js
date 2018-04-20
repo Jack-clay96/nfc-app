@@ -34,8 +34,8 @@ function updateDisplay() {
             // a payload that can be converted to a string.
             console.log("this function end");
         },
+        );
         alert(nfc.bytesToString(ndefMessage[0].payload).substring(3)); //Shows the written message of the NFC tag
-    );
 }); 
         
     
