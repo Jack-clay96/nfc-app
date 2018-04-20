@@ -16,12 +16,13 @@ function updateDisplay() {
     
    // Read NDEF formatted NFC Tags
     $( "#write" ).click(function() {
+        function () { // success callback
+        alert("Waiting for NDEF tag");
+        }
+        
     nfc.addNdefListener (
         function (nfcEvent) {
             
-            function () { // success callback
-            alert("Waiting for NDEF tag");
-        },
             var tag = nfcEvent.tag,
             ndefMessage = tag.ndefMessage;
 
@@ -38,7 +39,7 @@ function updateDisplay() {
         function (error) { // error callback
             alert("Error adding NDEF listener " + JSON.stringify(error));
         }
-    );
+    ),
     });
         
     
@@ -53,7 +54,7 @@ function updateDisplay() {
             function() {
                 console.log("Fail.");
             }
-        );
+        ),
     });
 }
 
