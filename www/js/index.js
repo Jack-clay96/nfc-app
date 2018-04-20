@@ -16,6 +16,8 @@ function updateDisplay() {
     
    // Read NDEF formatted NFC Tags
     $( "#read" ).click(function() {
+        console.log("Button clicked");
+        alert("Waiting for NDEF tag");
         
     nfc.addNdefListener (
         function (nfcEvent) {
@@ -33,10 +35,6 @@ function updateDisplay() {
             alert(nfc.bytesToString(ndefMessage[0].payload).substring(3)); //Shows the written message of the NFC tag
         },
         
-                function () { // success callback
-        alert("Waiting for NDEF tag");
-        }
-        
         function (error) { // error callback
             alert("Error adding NDEF listener " + JSON.stringify(error));
         }
@@ -44,7 +42,7 @@ function updateDisplay() {
     });
         
     
-    //Write to NFC tag
+   /* //Write to NFC tag
     $( "#write" ).click(function() {
         nfc.addNdefListener(
             writeTag,
@@ -56,6 +54,6 @@ function updateDisplay() {
                 console.log("Fail.");
             }
         ),
-    });
+    });*/
 }
 
