@@ -18,8 +18,12 @@ function updateDisplay() {
     $( "#write" ).click(function() {
     nfc.addNdefListener (
         function (nfcEvent) {
+            
+            function () { // success callback
+            alert("Waiting for NDEF tag");
+        },
             var tag = nfcEvent.tag,
-                ndefMessage = tag.ndefMessage;
+            ndefMessage = tag.ndefMessage;
 
             // dump the raw json of the message
             // note: real code will need to decode
@@ -30,9 +34,7 @@ function updateDisplay() {
             // a payload that can be converted to a string.
             alert(nfc.bytesToString(ndefMessage[0].payload).substring(3)); //Shows the written message of the NFC tag
         },
-        function () { // success callback
-            alert("Waiting for NDEF tag");
-        },
+ 
         function (error) { // error callback
             alert("Error adding NDEF listener " + JSON.stringify(error));
         }
