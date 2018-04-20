@@ -14,7 +14,7 @@ function updateDisplay() {
 	
 	console.log("device ready!");
     
-   // Read NDEF formatted NFC Tags
+// Read NDEF formatted NFC Tags
     $( "#read" ).click(function() {
         console.log("Button clicked");
         location.href="#nfcscan";
@@ -35,13 +35,18 @@ function updateDisplay() {
             alert(nfc.bytesToString(ndefMessage[0].payload).substring(3)); //Shows the written message of the NFC tag
         },
         
+        function () { // success callback
+            alert("Waiting for NDEF tag");
+        },
+        
         function (error) { // error callback
             alert("Error adding NDEF listener " + JSON.stringify(error));
         }
     );
-});     
+}); 
+        
     
-   /* //Write to NFC tag
+    //Write to NFC tag
     $( "#write" ).click(function() {
         nfc.addNdefListener(
             writeTag,
@@ -53,6 +58,6 @@ function updateDisplay() {
                 console.log("Fail.");
             }
         ),
-    });*/
+    });
 }
 
