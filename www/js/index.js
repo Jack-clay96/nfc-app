@@ -32,9 +32,9 @@ function updateDisplay() {
 
             // assuming the first record in the message has
             // a payload that can be converted to a string.
-            alert(nfc.bytesToString(ndefMessage[0].payload).substring(3)); //Shows the written message of the NFC tag
             console.log("this function end");
         },
+        alert(nfc.bytesToString(ndefMessage[0].payload).substring(3)); //Shows the written message of the NFC tag
     );
 }); 
         
