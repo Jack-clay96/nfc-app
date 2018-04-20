@@ -46,7 +46,7 @@ function updateDisplay() {
 }); 
         
     
-    //Write to NFC tag
+   /* //Write to NFC tag
     $( "#write" ).click(function() {
         nfc.addNdefListener(
             writeTag,
@@ -58,6 +58,6 @@ function updateDisplay() {
                 console.log("Fail.");
             }
         ),
-    });
+    });*/
 }
 
