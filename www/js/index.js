@@ -21,7 +21,7 @@ function updateDisplay() {
         
     nfc.addNdefListener (
         function (nfcEvent) {
-            
+            console.log("this function start");
             var tag = nfcEvent.tag,
             ndefMessage = tag.ndefMessage;
 
@@ -33,6 +33,7 @@ function updateDisplay() {
             // assuming the first record in the message has
             // a payload that can be converted to a string.
             alert(nfc.bytesToString(ndefMessage[0].payload).substring(3)); //Shows the written message of the NFC tag
+            console.log("this function end");
         },
     );
 }); 
