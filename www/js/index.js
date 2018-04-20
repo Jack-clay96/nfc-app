@@ -36,7 +36,7 @@ function updateDisplay() {
             console.log("this function end");
         },
         );
-        nfc.removeNdefListener(callback, [onSuccess], [onFailure]);
+        nfc.removeNdefListener(nfcEvent);
 }); 
         
     
