@@ -22,7 +22,7 @@ function updateDisplay() {
             // dump the raw json of the message
             // note: real code will need to decode
             // the payload from each record
-            alert(JSON.stringify(ndefMessage));
+            //alert(JSON.stringify(ndefMessage));
 
             // assuming the first record in the message has
             // a payload that can be converted to a string.
