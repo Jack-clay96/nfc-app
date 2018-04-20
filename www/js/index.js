@@ -24,10 +24,7 @@ function updateDisplay() {
             console.log("this function start");
             var tag = nfcEvent.tag,
             ndefMessage = tag.ndefMessage;
-
-            // dump the raw json of the message
-            // note: real code will need to decode
-            // the payload from each record
+            
             //alert(JSON.stringify(ndefMessage)); //Shows other info about the NFC tag
 
             // assuming the first record in the message has
