@@ -52,7 +52,8 @@ function updateDisplay() {
             console.log("Fail.");
             }
         );
-        
+nfc.removeNdefListener(nfcEvent);
+
 //Write implementation     
         function writeTag(nfcEvent) {
             var message = [
