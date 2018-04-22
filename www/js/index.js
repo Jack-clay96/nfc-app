@@ -33,11 +33,11 @@ function updateDisplay() {
             console.log("this function end");
         },
         );
-        nfc.removeNdefListener(nfcEvent);
+        nfc.removeNdefListener(callback, [onSuccess], [onFailure]);
 });     
 
     
-//Write to NFC tag
+/*Write to NFC tag
     $( "#write" ).click(function() {
         console.log("Button clicked");
         location.href="#nfcwrite";
@@ -61,5 +61,5 @@ function updateDisplay() {
             alert("Write succesfull");
             console.log("writeTag function Ended");
         }
-    });
+    });*/
 }
