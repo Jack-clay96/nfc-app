@@ -12,7 +12,7 @@ function updateDisplay() {
     function onDeviceReady() {
 	
 	console.log("device ready!");
-    
+  /*  
 // Read NDEF formatted NFC Tags
     $( "#read" ).click(function() {
         console.log("Button clicked");
@@ -31,7 +31,7 @@ function updateDisplay() {
             console.log("this function end");
         },
         );
-});     
+});     */
 
     
 // Write to NFC tag
@@ -47,16 +47,7 @@ function updateDisplay() {
             console.log("writeTag function started");
             var message = ndef.textRecord("product name, qunatity: 4")
 
-            nfc.write(message, sucess, failure),
-            function sucess ()
-            {
-                alert("Write sucessfull");
-            }
-            function  failure()
-            {
-                alert("Wrrite fail");
-            }
-
+            nfc.write(message);
             console.log("writeTag function Ended");
         }
             
