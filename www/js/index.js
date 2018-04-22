@@ -20,7 +20,7 @@ function updateDisplay() {
         location.href="#nfcscan";
         
     nfc.addNdefListener (
-        function readTag (nfcEvent) {
+        function (nfcEvent) {
             console.log("this function start");
             var tag = nfcEvent.tag,
             ndefMessage = tag.ndefMessage;
@@ -33,7 +33,13 @@ function updateDisplay() {
             console.log("this function end");
         },
         );
-        nfc.removeNdefListener(readTag);
+        nfc.removeNdefListener(nfcEvent,sucess,fail);
+        function sucess{
+            console.log("listener removed succesffuly!!")
+        }
+        function fail{
+            console.log("ffs, it failed")
+        }
 });     
 
     
