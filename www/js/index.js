@@ -34,21 +34,40 @@ function updateDisplay() {
         },
         );
         nfc.removeNdefListener(nfcEvent);
-}); 
-        
+});     
+
     
-   /* //Write to NFC tag
+//Write to NFC tag
     $( "#write" ).click(function() {
+        console.log("Button clicked");
+        location.href="#nfcwrite";
+//Listener
         nfc.addNdefListener(
-            writeTag,
+        writeTag,
 
             function() {
-                console.log("Success.");
+            console.log("Success.");
             },
             function() {
-                console.log("Fail.");
+            console.log("Fail.");
             }
-        ),
-    });*/
-}
+        );
+        
+//Write implementation     
+        function writeTag(nfcEvent) {
+            var mimeType = "my/mimetype";
+            var payload = "super secret data";
+            var message = nfc.mimeMediaRecord(mimeType, nfc.stringToBytes(payload));
 
+            nfc.write(
+            [message],
+                function () {
+                console.log("success");
+                },
+                function (reason) {
+                console.log("fail");
+                }
+            );
+        }
+    });
+}
