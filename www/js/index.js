@@ -34,10 +34,10 @@ function updateDisplay() {
         },
         );
         nfc.removeNdefListener(nfcEvent,sucess,fail);
-        function sucess{
+        function sucess(){
             console.log("listener removed succesffuly!!")
         }
-        function fail{
+        function fail(){
             console.log("ffs, it failed")
         }
 });     
