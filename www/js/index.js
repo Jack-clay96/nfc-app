@@ -53,34 +53,13 @@ function updateDisplay() {
             }
         );
         
- nfc.addMimeTypeListener(mimeType, callback, [onSuccess], [onFailure]);
-nfc.addMimeTypeListener("my/mimeType",parseTag);
-        function parseTag(nfcEvent) {
-        var records = nfcEvent.tagData;
-
-        for (var i = 0; i < records.length; i++) {
-            var record = records[i],
-            p = document.createElement('p');
-            p.innerHTML = nfc.bytesToString(record.payload);
-            display.appendChild(p);
-  }
-}
-        
 //Write implementation     
         function writeTag(nfcEvent) {
-            var mimeType = "my/mimetype";
-            var payload = "super secret data";
-            var message = nfc.mimeMediaRecord(mimeType, nfc.stringToBytes(payload));
-
-            nfc.write(
-            [message],
-                function () {
-                console.log("success");
-                },
-                function (reason) {
-                console.log("fail");
-                }
-            );
+            var message = [
+            ndef.textRecord("hello, world"),
+            ndef.uriRecord("http://github.com/chariotsolutions/phonegap-nfc")
+];
+            nfc.write(message);
         }
     });
 }
