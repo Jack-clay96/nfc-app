@@ -51,7 +51,7 @@ function updateDisplay() {
 );
         //Write implementation     
         function writeTag(nfcEvent) {
-            var message = nfc.textRecord("product name, qunatity: 4")
+            var message = ndef.textRecord("Hello")
             nfc.write(message);
         }
     });
