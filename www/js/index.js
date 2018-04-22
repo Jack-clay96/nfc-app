@@ -31,9 +31,9 @@ function updateDisplay() {
             // a payload that can be converted to a string.
             alert(nfc.bytesToString(ndefMessage[0].payload).substring(3)); //Shows the written message of the NFC tag
             console.log("this function end");
-            nfc.removeNdefListener(nfcEvent);
         },
         );
+        nfc.removeNdefListener(nfcEvent);
 });     
 
     
@@ -46,9 +46,10 @@ function updateDisplay() {
         nfc.addNdefListener(
         console.log("Writelistener started"),
         writeTag,
-        console.log("Writelistener ended")
+        console.log("Writelistener ended"),
         );
-
+        nfc.removeNdefListener(nfcEvent);
+        
 //Write implementation     
         function writeTag(nfcEvent) {
             console.log("writeTag function started");
@@ -59,7 +60,6 @@ function updateDisplay() {
             nfc.write(message);
             alert("Write succesfull");
             console.log("writeTag function Ended");
-            nfc.removeNdefListener(nfcEvent)
         }
     });
 }
