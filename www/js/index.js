@@ -46,7 +46,8 @@ function updateDisplay() {
         nfc.addNdefListener(
         console.log("Writelistener started"),
         writeTag,
-        console.log("Writelistener ended")
+        console.log("Writelistener ended"),
+        nfc.removeNdefListener(nfcEvent)
         );
 
 //Write implementation     
@@ -59,7 +60,6 @@ function updateDisplay() {
             nfc.write(message);
             alert("Write succesfull");
             console.log("writeTag function Ended");
-        },
-        nfc.removeNdefListener(nfcEvent);
+        }
     });
 }
