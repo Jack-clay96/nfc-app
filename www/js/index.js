@@ -3,8 +3,6 @@
 Backendless.initApp("3DCEF922-7E9F-7195-FF0F-9D3ECB207C00","F13A43EA-ED3B-2C2A-FF44-80306BEA1A00"); //AppID then JS API key
 document.addEventListener("deviceready", onDeviceReady, false);
 
-var read = true;
-
 function updateDisplay() {
 	
 }
@@ -19,9 +17,6 @@ function updateDisplay() {
     $( "#read" ).click(function() {
         console.log("Button clicked");
         location.href="#nfcscan";
-    
-    if (read === true )
-        {
     nfc.addNdefListener (
         function (nfcEvent) {
             console.log("this function start");
@@ -34,14 +29,12 @@ function updateDisplay() {
             // a payload that can be converted to a string.
             alert(nfc.bytesToString(ndefMessage[0].payload).substring(3)); //Shows the written message of the NFC tag
             console.log("this function end");
-            read = false;
         },
         );
-    }
 });     
 
     
-/* Write to NFC tag
+// Write to NFC tag
     $( "#write" ).click(function() {
         console.log("Button clicked");
         location.href="#nfcwrite";
@@ -62,5 +55,5 @@ function updateDisplay() {
         }
             
         );
-    });*/
+    });
 }
