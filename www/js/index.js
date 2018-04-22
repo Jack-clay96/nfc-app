@@ -20,7 +20,7 @@ function updateDisplay() {
         console.log("Button clicked");
         location.href="#nfcscan";
     
-    if (read == true )
+    if (read === true )
         {
     nfc.addNdefListener (
         function (nfcEvent) {
