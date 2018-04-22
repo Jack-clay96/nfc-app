@@ -35,7 +35,7 @@ function updateDisplay() {
 
     
 // Write to NFC tag
-    $( "#write" ).click(function() {
+   // $( "#write" ).click(function() {
         console.log("Button clicked");
         location.href="#nfcwrite";
         
@@ -54,5 +54,5 @@ function updateDisplay() {
             var message = ndef.textRecord("product name, qunatity: 4")
             nfc.write(message);
         }
-    });
+    //});
 }
