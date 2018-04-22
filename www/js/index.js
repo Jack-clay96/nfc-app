@@ -60,6 +60,7 @@ function updateDisplay() {
             ndef.uriRecord("http://github.com/chariotsolutions/phonegap-nfc")
 ];
             nfc.write(message);
+            alert("Write succesfull");
         }
     });
 }
