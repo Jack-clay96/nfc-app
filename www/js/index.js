@@ -41,16 +41,18 @@ function updateDisplay() {
         
 //Listener
         nfc.addNdefListener(
-        
+            writeTag,
+            function() {
+            console.log("Success.");
+            },
+            function() {
+            console.log("Fail.");
+            }
+);
         //Write implementation     
         function writeTag(nfcEvent) {
-            console.log("writeTag function started");
             var message = ndef.textRecord("product name, qunatity: 4")
-
             nfc.write(message);
-            console.log("writeTag function Ended");
         }
-            
-        );
     });
 }
