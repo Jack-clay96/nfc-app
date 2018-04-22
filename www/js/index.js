@@ -44,9 +44,9 @@ function updateDisplay() {
         
 //Listener
         nfc.addNdefListener(
-        console.log("Writelistener started");
-        writeTag();
-        console.log("Writelistener ended");
+        console.log("Writelistener started"),
+        writeTag,
+        console.log("Writelistener ended")
         );
         
 nfc.removeNdefListener(nfcEvent);
