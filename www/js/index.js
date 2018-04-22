@@ -41,27 +41,26 @@ function updateDisplay() {
     $( "#write" ).click(function() {
         console.log("Button clicked");
         location.href="#nfcwrite";
+        
 //Listener
         nfc.addNdefListener(
-        writeTag,
-
-            function() {
-            console.log("Success.");
-            },
-            function() {
-            console.log("Fail.");
-            }
+        console.log("Writelistener started");
+        writeTag();
+        console.log("Writelistener ended");
         );
+        
 nfc.removeNdefListener(nfcEvent);
 
 //Write implementation     
         function writeTag(nfcEvent) {
+            console.log("writeTag function started");
             var message = [
             ndef.textRecord("product name, qunatity: 4"),
             ndef.uriRecord("http://github.com/chariotsolutions/phonegap-nfc")
-];
+            ];
             nfc.write(message);
             alert("Write succesfull");
+            console.log("writeTag function Ended");
         }
     });
 }
