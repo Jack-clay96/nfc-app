@@ -56,7 +56,7 @@ function updateDisplay() {
 //Write implementation     
         function writeTag(nfcEvent) {
             var message = [
-            ndef.textRecord("hello, world"),
+            ndef.textRecord("product name, qunatity: 4"),
             ndef.uriRecord("http://github.com/chariotsolutions/phonegap-nfc")
 ];
             nfc.write(message);
