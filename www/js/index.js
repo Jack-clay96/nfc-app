@@ -44,13 +44,13 @@ function updateDisplay() {
 //Write implementation
         function writeTag (nfcEvent) {
             console.log("writeTag function ran");
-            message = [ndef.textRecord("Product"), ndef.textRecord("5")];
+            message = [ndef.textRecord("Product"), ndef.textRecord("1")];
             nfc.write(message);
         }
 //Listener
         nfc.addNdefListener(
             writeTag
         );
-        nfc.removeTagDiscoveredListener(callback, [onSuccess], [onFailure]);
+        nfc.removeTagDiscoveredListener(writeTag);
     });
 }
