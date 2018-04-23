@@ -48,7 +48,7 @@ function updateDisplay() {
         }
 //Listener
         nfc.addNdefListener(
-            WriteTag
+            writeTag
 );
     });
 }
