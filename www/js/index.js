@@ -3,6 +3,8 @@
 Backendless.initApp("3DCEF922-7E9F-7195-FF0F-9D3ECB207C00","F13A43EA-ED3B-2C2A-FF44-80306BEA1A00"); //AppID then JS API key
 document.addEventListener("deviceready", onDeviceReady, false);
 
+var message;
+
 function updateDisplay() {
 	
 }
@@ -12,7 +14,7 @@ function updateDisplay() {
     function onDeviceReady() {
 	
 	console.log("device ready!");
-  /*  
+ /*   
 // Read NDEF formatted NFC Tags
     $( "#read" ).click(function() {
         console.log("Button clicked");
@@ -41,17 +43,10 @@ function updateDisplay() {
         
 //Listener
         nfc.addNdefListener(
-            writeTag,
-            function() {
-            console.log("Success.");
-            },
-            function() {
-            console.log("Fail.");
-            },
-        //Write implementation     
-        function writeTag(nfcEvent) {
-            var message = ndef.textRecord("Hello")
-            nfc.write(message)
+        //Write implementation
+        function (nfcEvent) {
+            message = ndef.textRecord("Hello");
+            nfc.write(message);
         }
 );
     });
