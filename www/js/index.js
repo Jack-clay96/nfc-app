@@ -47,12 +47,12 @@ function updateDisplay() {
             },
             function() {
             console.log("Fail.");
-            }
-);
+            },
         //Write implementation     
         function writeTag(nfcEvent) {
             var message = ndef.textRecord("Hello")
-            nfc.write(message);
+            nfc.write(message)
         }
+);
     });
 }
