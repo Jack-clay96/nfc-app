@@ -24,16 +24,13 @@ function updateDisplay() {
             console.log("this function start");
             var tag = nfcEvent.tag,
             ndefMessage = tag.ndefMessage;
-            
-            //alert(JSON.stringify(ndefMessage)); //Shows other info about the NFC tag
 
-            // assuming the first record in the message has
             // a payload that can be converted to a string.
             alert(nfc.bytesToString(ndefMessage[0].payload).substring(3)); //Shows the written message of the NFC tag
             console.log("this function end");
         },
         );
-        nfc.removeTagDiscoveredListener(callback);
+        nfc.removeTagDiscoveredListener();
 });     
 
     
