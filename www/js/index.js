@@ -40,14 +40,15 @@ function updateDisplay() {
     $( "#write" ).click(function() {
         console.log("Button clicked");
         location.href="#nfcwrite";
-        
-//Listener
-        nfc.addNdefListener(
-        //Write implementation
-        function (nfcEvent) {
+
+//Write implementation
+        function writeTag (nfcEvent) {
             message = ndef.textRecord("Hello");
             nfc.write(message);
         }
+//Listener
+        nfc.addNdefListener(
+            Writetag
 );
     });
 }
