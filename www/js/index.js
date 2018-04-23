@@ -51,6 +51,9 @@ function updateDisplay() {
         nfc.addNdefListener(
             writeTag
         );
-        nfc.removeTagDiscoveredListener(writeTag);
+        nfc.removeTagDiscoveredListener(writeTag, finishWrite);
+        function finishWrite(){
+            alert("Write successful")
+        }
     });
 }
