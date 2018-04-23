@@ -6,7 +6,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 var message;
 
 function updateDisplay() {
-	
+	nfc.removeTagDiscoveredListener();
 }
 
 
@@ -30,7 +30,7 @@ function updateDisplay() {
             console.log("this function end");
         },
         );
-        nfc.removeTagDiscoveredListener();
+        updateDisplay();
 });     
 
     
@@ -49,6 +49,6 @@ function updateDisplay() {
         nfc.addNdefListener(
             writeTag
         );
-        nfc.removeTagDiscoveredListener(callback);
+    updateDisplay();
     });
 }
