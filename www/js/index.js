@@ -43,6 +43,7 @@ function updateDisplay() {
 
 //Write implementation
         function writeTag (nfcEvent) {
+            console.log("writeTag function ran");
             message = ndef.textRecord("Hello");
             nfc.write(message);
         }
