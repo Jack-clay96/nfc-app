@@ -14,7 +14,7 @@ function updateDisplay() {
     function onDeviceReady() {
 	
 	console.log("device ready!");
- /*   
+    
 // Read NDEF formatted NFC Tags
     $( "#read" ).click(function() {
         console.log("Button clicked");
@@ -33,7 +33,8 @@ function updateDisplay() {
             console.log("this function end");
         },
         );
-});     */
+        nfc.removeTagDiscoveredListener(callback);
+});     
 
     
 // Write to NFC tag
@@ -51,9 +52,6 @@ function updateDisplay() {
         nfc.addNdefListener(
             writeTag
         );
-        nfc.removeTagDiscoveredListener(writeTag, finishWrite);
-        function finishWrite(){
-            alert("Write successful")
-        }
+        nfc.removeTagDiscoveredListener(callback);
     });
 }
