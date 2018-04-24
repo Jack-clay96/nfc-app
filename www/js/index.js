@@ -138,7 +138,7 @@ dataQueryBuilder.setSortBy( ["created"] );
 
     $(".partButton").click(function(){
     location.href="#partPage";
-    }
+    });
 /* Errors */
     function gotError( err ) // see more on error handling
     {
