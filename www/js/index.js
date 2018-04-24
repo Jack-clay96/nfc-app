@@ -4,6 +4,7 @@ Backendless.initApp("3DCEF922-7E9F-7195-FF0F-9D3ECB207C00","F13A43EA-ED3B-2C2A-F
 document.addEventListener("deviceready", onDeviceReady, false);
 
 var message;
+var partButton = "partButton";
 var dataQueryBuilder = Backendless.DataQueryBuilder.create()
 dataQueryBuilder.setSortBy( ["created"] );
 
@@ -128,11 +129,15 @@ dataQueryBuilder.setSortBy( ["created"] );
     for (var i = 0; i<Parts.length; i++)
         {
             //display the first task in an array of tasks. alert(tasks[2].Task)
-            $("#EventList").append("<li><a id=" + Events[i].objectId  + " >" +Parts[i].PartName+"</a></li>"); //#EventList where to show list in html. Events[i] is database. eventName is attribute
+            $("#EventList").append("<li><a class="+ partButton +"id=" + Events[i].objectId  + " >" +Parts[i].PartName+"</a></li>"); //#EventList where to show list in html. Events[i] is database. eventName is attribute
         }
             
         //refresh the listview
         $("#EventList").listview("refresh");
+    }
+
+    $(".partButton").click(function(){
+    location.href="#partPage";
     }
 /* Errors */
     function gotError( err ) // see more on error handling
