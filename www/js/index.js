@@ -4,10 +4,8 @@ Backendless.initApp("3DCEF922-7E9F-7195-FF0F-9D3ECB207C00","F13A43EA-ED3B-2C2A-F
 document.addEventListener("deviceready", onDeviceReady, false);
 
 var message;
-
-function updateDisplay() {
-	nfc.removeTagDiscoveredListener();
-}
+var dataQueryBuilder = Backendless.DataQueryBuilder.create()
+dataQueryBuilder.setSortBy( ["created"] );
 
 
 // device APIs are available
@@ -116,6 +114,27 @@ function updateDisplay() {
     });
 }
 
+/* Home Page */
+ function onPageShow() {
+	console.log("page shown");
+    Backendless.Data.of("Events").find(dataQueryBuilder).then(processResults).catch(error); // find (...) is used here to order the list by created.
+    
+    }
+
+//LISTING THE DATABASE
+    function processResults(Events) {
+        $("#EventList").empty();
+        
+    for (var i = 0; i<Parts.length; i++)
+        {
+            //display the first task in an array of tasks. alert(tasks[2].Task)
+            $("#EventList").append("<li><a id=" + Events[i].objectId  + " >" +Parts[i].PartName+"</a></li>"); //#EventList where to show list in html. Events[i] is database. eventName is attribute
+        }
+            
+        //refresh the listview
+        $("#EventList").listview("refresh");
+    }
+/* Errors */
     function gotError( err ) // see more on error handling
     {
         console.log( "error message - " + err.message );
