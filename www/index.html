@@ -9,11 +9,10 @@
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="js/backendless.min.js" type="text/javascript"></script>
-    <script src="cordova.js"></script>
     <script src="js/index.js"></script> 
 </head>
     
-<body onload="onDeviceReady()" > <!--DELETE ONLOAD WHEN APP FINISHED -->
+<body onload="onDeviceReady()"> <!--Need TO DELETE ONLOAD ON COMPLETION OF APP -->
     
     
 <!--NFC SCANNING -->
@@ -22,20 +21,108 @@
 <div data-role="page" id="loginPage" class = "BG">
         
   	<div role="main" class="ui-content">
+        
         <h1>NFC Stock Management</h1>
-        <button id="read">Read</button>
-        <button id="write">Write</button>
-    
+        
+        <div class ="loginForm">
+             <input class ="loginField" type="text" id="email" placeholder="Email"/>
+             <input type="password" id="password" placeholder="Password"/> <br>
+             <button class="loginButton" id="loginButton" type="submit">Login</button>
+        </div>
+             
+    </div>
+        <div data-role="footer" data-position="fixed"> <a href="#regPage">Register</a> <a href="#forgpassPage">Forgot Password</a></div>
+</div>
+
+<!--Registration Page -->
+<div data-role="page" id="regPage" class = "">
+    <div role="main" class="ui-content">
+        <h1 class="header">Sign up!</h1>
+        <input class ="loginField" type="text" id="emailReg" placeholder="Email"/>
+        <input class ="loginField" type="text" id="nameReg" placeholder ="Full Name" />
+        <input class ="loginField" type="password" id="passwordReg" placeholder ="Password" />
+        <button id="register">Confirm</button> <!-- need notification for account created / confirmation message? -->
+    </div>
+</div>
+
+<!--Forgot-password Page -->
+<div data-role="page" id="forgpassPage" class = "">
+    <div role="main" class="ui-content">
+        <h1 class="header">Forgot Password?</h1>
+        <input class ="loginField" type="text" id="emailPass" placeholder="Email"/>
+        <button href="#loginPage" id="ForgpassBut" class="">Confirm</button> <!-- Send email with password? Look at backendless help for it -->
     </div>
 </div>
     
-<div data-role="page" id="nfcscan" class = "BG">
-    <h1> Waiting for nfc scan</h1>
+<!--Home Page -->
+<div data-role="page" id="homePage" class="homeBG">
+    <h1 class="header">ZX-Lidar</h1>
+    <a href="#myPanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-mini ui-btn-icon-notext"></a>
+        <div role="main" class="loginForm">
+            <input type="text" id="username" placeholder="Search"/>
+            <a class="search" id="searchConfirm" data-role="button" data-icon="search" data-iconpos='right'>Search </a> <br>     
+                <div class="ui-content ui-body-b">
+                    <!-- List of parts Here -->
+                    <ul id='container' data-role="listview">
+                        <li><a href="">Part 1</a></li>
+                        <li><a href="">Part 2</a></li>
+                    </ul>
+                </div>
+        </div>
 </div>
 
-<div data-role="page" id="nfcwrite" class = "BG">
-    <h1> Writing page - Waiting for nfc scan</h1>
+        <!--Settings page -->
+<div data-role="page" id="settingsPage" class="homeBG">
+    <div role="main" calss="ui-content">
+        <h1 data-icon="home">Settings</h1>
+        <a href="#myPanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-mini ui-btn-icon-notext"></a>
+            <div class="ui-content ui-body-b">
+                <!--Add Part -->
+                <h2>Add Part</h2>
+                <input type="text" id="newPartName" placeholder="Part Name"/>
+                <input type="text" id="newLocation" placeholder="Location"/>
+                <button id="addConfirmButton" type="submit">Confirm</button>
+            </div>
+            <br>
+            <div class="ui-content ui-body-b">
+                <!--Edit Part -->
+                <h2>Edit Part</h2>
+                <select type="text" id="selectPartName" placeholder="Select Part"> 
+                <option value="">option1</option>
+                </select>
+                <input type="text" id="editPartName" placeholder="New Part Name"/>
+                <input type="text" id="editLocation" placeholder="New Location"/>
+                <button id="addConfirmButton" type="submit">Confirm</button>
+            </div>
+            <br>
+            <div class="ui-content ui-body-b">
+                <!--Edit Part -->
+                <h2>Delete Part</h2>
+                <select type="text" id="deletePartName" placeholder="Select Part"> 
+                <option value="">option1</option>
+                </select>
+                <button id="addConfirmButton" type="submit">Confirm</button>
+            </div>
+    </div>
 </div>
-
+    
+    
+   <!-- Panel / Action bar -->
+    <div data-role="panel" id="myPanel" data-position="left" data-display="overlay" data-theme="b">
+        <h2>Pages</h2>
+        <div class="ui-panel-inner">
+            <ul data-role="listview">
+                <li data-icon="home">
+                    <a id="homeAction" href="#homePage">Home</a>
+                </li>
+                <li data-icon="calendar">
+                    <a id="settingsAction" href="#settingsPage">Settings</a>
+                </li>
+                <li data-icon="tag">
+                    <a id="scanAction" href="#scanPage">Scan</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
