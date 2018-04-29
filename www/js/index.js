@@ -123,7 +123,7 @@ $(document).on("pageshow","#homePage", onPageShow);
     }
 
 //LISTING THE DATABASE
-    function processResults(productInfo) {
+function processResults(productInfo) {
         $("#partList").empty();
         
     for (var i = 0; i<productInfo.length; i++)
@@ -134,11 +134,8 @@ $(document).on("pageshow","#homePage", onPageShow);
             
         //refresh the listview
         $("#partList").listview("refresh");
-    }
 
     $(".partButton").click(function(){
-    console.log("button clicked");
-    location.href="#partPage";
     console.log(this.id);
         
     //query backendless for events matching this event name. FOR GETTING DATA SPECIFIC FOR EVENT
@@ -151,7 +148,11 @@ $(document).on("pageshow","#homePage", onPageShow);
         
         console.log("db error: " + error);
     });
+        
+    console.log("button clicked");
+    location.href="#partPage";
     });
+}
 /* Errors */
     function error(err) {
         alert("database error: " + err);
