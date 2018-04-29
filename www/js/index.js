@@ -7,7 +7,7 @@ var message;
 var partButton = "partButton";
 var dataQueryBuilder = Backendless.DataQueryBuilder.create()
 dataQueryBuilder.setSortBy( ["created"] );
-
+$(document).on("pageshow","#homePage", onPageShow);
 
 // device APIs are available
     function onDeviceReady() {
@@ -129,7 +129,7 @@ dataQueryBuilder.setSortBy( ["created"] );
     for (var i = 0; i<productInfo.length; i++)
         {
             //display the first task in an array of tasks. alert(tasks[2].Task)
-            $("#partList").append("<li><a class="+ partButton +"id=" + productInfo[i].objectId  + " >" +productInfos[i].ProductName+"</a></li>"); //#EventList where to show list in html. Events[i] is database. eventName is attribute
+            $("#partList").append("<li><a class="+ partButton +"id=" + productInfo[i].objectId  + " >" +productInfos[i].ProductName+"</a></li>"); //#partList where to show list in html. productInfo[i] is database. productInfo is attribute
             console.log("this has run");
         }
             
