@@ -142,12 +142,14 @@ $(document).on("pageshow","#homePage", onPageShow);
     console.log(this.id);
         
     //query backendless for events matching this event name. FOR GETTING DATA SPECIFIC FOR EVENT
-    Backendless.Data.of( "Events" ).findById( this.id )
+    Backendless.Data.of( "productInfo" ).findById( this.id )
     .then( function( result ) {
     //data about event here
     $("headerPartName").append(this.id.ProductName);
     })
     .catch( function( error ) {
+        
+        console.log("db error: " + error);
     });
     });
 /* Errors */
