@@ -136,7 +136,7 @@ function processResults(productInfo) {
         $("#partList").listview("refresh");
     
     $(".partButton").click(function(){
-    var arrayId = this.id + 1
+    var arrayId = this.id + 1;
     console.log(productInfo[arrayId].ProductName);
     //query backendless for parts matching this part ID. FOR GETTING DATA SPECIFIC FOR Part
     Backendless.Data.of( "productInfo" ).findById( productInfo[arrayId].objectId )
