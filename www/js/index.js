@@ -130,7 +130,6 @@ $(document).on("pageshow","#homePage", onPageShow);
         {
             //display the first task in an array of tasks. alert(tasks[2].Task)
             $("#partList").append("<li><a class="+ partButton +"id=" + productInfo[i].objectId  + " >" +productInfo[i].ProductName+"</a></li>"); //#partList where to show list in html. productInfo[i] is database. productInfo is attribute
-            console.log("this has run");
         }
             
         //refresh the listview
@@ -140,6 +139,16 @@ $(document).on("pageshow","#homePage", onPageShow);
     $(".partButton").click(function(){
     console.log("button clicked");
     location.href="#partPage";
+    console.log(this.id);
+        
+    //query backendless for events matching this event name. FOR GETTING DATA SPECIFIC FOR EVENT
+    Backendless.Data.of( "Events" ).findById( this.id )
+    .then( function( result ) {
+    //data about event here
+    $("headerPartName").append(this.id.ProductName);
+    })
+    .catch( function( error ) {
+    });
     });
 /* Errors */
     function error(err) {
