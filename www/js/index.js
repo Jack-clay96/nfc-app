@@ -118,7 +118,7 @@ dataQueryBuilder.setSortBy( ["created"] );
 /* Home Page */
  function onPageShow() {
 	console.log("page shown");
-    Backendless.Data.of("Events").find(dataQueryBuilder).then(processResults).catch(error); // find (...) is used here to order the list by created.
+    Backendless.Data.of("productinfo").find(dataQueryBuilder).then(processResults).catch(error); // find (...) is used here to order the list by created.
     
     }
 
