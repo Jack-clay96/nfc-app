@@ -137,8 +137,8 @@ function processResults(productInfo) {
 
     $(".partButton").click(function(){
     console.log(this.id);
-    console.log(this.id.ProductName);
-    //query backendless for events matching this event name. FOR GETTING DATA SPECIFIC FOR EVENT
+    console.log(this.objectId);
+    //query backendless for parts matching this part ID. FOR GETTING DATA SPECIFIC FOR Part
     Backendless.Data.of( "productInfo" ).findById( this.id )
     .then( function( result ) {
     //data about event here
