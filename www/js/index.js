@@ -126,7 +126,7 @@ $(document).on("pageshow","#homePage", onPageShow);
 function processResults(productInfo) {
         $("#partList").empty();
         
-    for (var i = 1; i<productInfo.length; i++)
+    for (var i = 0; i<productInfo.length; i++)
         {
             //display the first task in an array of tasks. alert(tasks[2].Task)
             $("#partList").append("<li><a class=" + partButton +" id=" + i  + " >" +productInfo[i].ProductName+"</a></li>"); //#partList where to show list in html. productInfo[i] is database. productInfo is attribute
@@ -136,13 +136,13 @@ function processResults(productInfo) {
         $("#partList").listview("refresh");
 
     $(".partButton").click(function(){
-    console.log(productInfo[this.id].ProductName);
+    console.log(productInfo[this.id + 1].ProductName);
     //query backendless for parts matching this part ID. FOR GETTING DATA SPECIFIC FOR Part
-    Backendless.Data.of( "productInfo" ).findById( this.id )
+    Backendless.Data.of( "productInfo" ).findById( productInfo[this.id + 1].objectId )
     .then( function( result ) {
     //data about event here
-    console.log("Name from array: " + productInfo[this.id].ProductName);
-    $("#headerPartName").append(productInfo[this.id].ProductName);
+    console.log("Name from array: " + productInfo[this.id + 1].ProductName);
+    $("#headerPartName").append(productInfo[this.id + 1].ProductName);
     })
     .catch( function( error ) {
         
