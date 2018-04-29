@@ -123,18 +123,18 @@ dataQueryBuilder.setSortBy( ["created"] );
     }
 
 //LISTING THE DATABASE
-    function processResults(Events) {
-        $("#EventList").empty();
+    function processResults(productInfo) {
+        $("#partList").empty();
         
-    for (var i = 0; i<Parts.length; i++)
+    for (var i = 0; i<productInfo.length; i++)
         {
             //display the first task in an array of tasks. alert(tasks[2].Task)
-            $("#EventList").append("<li><a class="+ partButton +"id=" + Events[i].objectId  + " >" +Parts[i].ProductName+"</a></li>"); //#EventList where to show list in html. Events[i] is database. eventName is attribute
+            $("#partList").append("<li><a class="+ partButton +"id=" + productInfo[i].objectId  + " >" +productInfos[i].ProductName+"</a></li>"); //#EventList where to show list in html. Events[i] is database. eventName is attribute
             console.log("this has run");
         }
             
         //refresh the listview
-        $("#EventList").listview("refresh");
+        $("#partList").listview("refresh");
     }
 
     $(".partButton").click(function(){
