@@ -129,7 +129,7 @@ function processResults(productInfo) {
     for (var i = 0; i<productInfo.length; i++)
         {
             //display the first task in an array of tasks. alert(tasks[2].Task)
-            $("#partList").append("<li><a class=" + partButton +" id=" + i  + " >" +productInfo[i].ProductName+"</a></li>"); //#partList where to show list in html. productInfo[i] is database. productInfo is attribute
+            $("#partList").append("<li><a class=" + partButton +" id=" + (i+1)  + " >" +productInfo[i].ProductName+"</a></li>"); //#partList where to show list in html. productInfo[i] is database. productInfo is attribute
         }
             
         //refresh the listview
@@ -141,7 +141,7 @@ function processResults(productInfo) {
     Backendless.Data.of( "productInfo" ).findById( this.id )
     .then( function( result ) {
     //data about event here
-    console.log("Name from array: " + productInfo[this.id + 1].ProductName);
+    console.log("Name from array: " + productInfo[this.id].ProductName);
     $("#headerPartName").append(this.id.ProductName);
     })
     .catch( function( error ) {
