@@ -136,9 +136,9 @@ function processResults(productInfo) {
         $("#partList").listview("refresh");
 
     $(".partButton").click(function(){
-    console.log(this.ProductName);
+    console.log(productInfo[this.id].ProductName);
     //query backendless for parts matching this part ID. FOR GETTING DATA SPECIFIC FOR Part
-    Backendless.Data.of( "productInfo" ).findById( this.objectId )
+    Backendless.Data.of( "productInfo" ).findById( this.id )
     .then( function( result ) {
     //data about event here
     console.log("Name from array: " + productInfo[this.id].ProductName);
