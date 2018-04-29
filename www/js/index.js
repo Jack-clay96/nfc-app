@@ -137,6 +137,7 @@ dataQueryBuilder.setSortBy( ["created"] );
     }
 
     $(".partButton").click(function(){
+    console.log("button clicked");
     location.href="#partPage";
     });
 /* Errors */
