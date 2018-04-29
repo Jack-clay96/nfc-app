@@ -129,7 +129,7 @@ $(document).on("pageshow","#homePage", onPageShow);
     for (var i = 0; i<productInfo.length; i++)
         {
             //display the first task in an array of tasks. alert(tasks[2].Task)
-            $("#partList").append("<li><a class="+ partButton +"id=" + productInfo[i].objectId  + " >" +productInfos[i].ProductName+"</a></li>"); //#partList where to show list in html. productInfo[i] is database. productInfo is attribute
+            $("#partList").append("<li><a class="+ partButton +"id=" + productInfo[i].objectId  + " >" +productInfo[i].ProductName+"</a></li>"); //#partList where to show list in html. productInfo[i] is database. productInfo is attribute
             console.log("this has run");
         }
             
@@ -142,6 +142,9 @@ $(document).on("pageshow","#homePage", onPageShow);
     location.href="#partPage";
     });
 /* Errors */
+    function error(err) {
+        alert("database error: " + err);
+    }
     function gotError( err ) // see more on error handling
     {
         console.log( "error message - " + err.message );
