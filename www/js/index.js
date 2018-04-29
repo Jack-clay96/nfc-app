@@ -134,15 +134,16 @@ function processResults(productInfo) {
             
         //refresh the listview
         $("#partList").listview("refresh");
-
+    
     $(".partButton").click(function(){
-    console.log(productInfo[(this.id + 1)].ProductName);
+    var arrayId = this.id + 1
+    console.log(productInfo[arrayId].ProductName);
     //query backendless for parts matching this part ID. FOR GETTING DATA SPECIFIC FOR Part
-    Backendless.Data.of( "productInfo" ).findById( productInfo[this.id + 1].objectId )
+    Backendless.Data.of( "productInfo" ).findById( productInfo[arrayId].objectId )
     .then( function( result ) {
     //data about event here
-    console.log("Name from array: " + productInfo[this.id + 1].ProductName);
-    $("#headerPartName").append(productInfo[this.id + 1].ProductName);
+    console.log("Name from array: " + productInfo[arrayId].ProductName);
+    $("#headerPartName").append(productInfo[arrayId].ProductName);
     })
     .catch( function( error ) {
         
