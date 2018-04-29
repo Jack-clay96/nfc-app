@@ -129,7 +129,7 @@ function processResults(productInfo) {
     for (var i = 0; i<productInfo.length; i++)
         {
             //display the first task in an array of tasks. alert(tasks[2].Task)
-            $("#partList").append("<li><a class=" + partButton +" id=" + productInfo[i].objectId  + " >" +productInfo[i].ProductName+"</a></li>"); //#partList where to show list in html. productInfo[i] is database. productInfo is attribute
+            $("#partList").append("<li><a class=" + partButton +" id=" + i  + " >" +productInfo[i].ProductName+"</a></li>"); //#partList where to show list in html. productInfo[i] is database. productInfo is attribute
         }
             
         //refresh the listview
