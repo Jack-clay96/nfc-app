@@ -126,7 +126,7 @@ $(document).on("pageshow","#homePage", onPageShow);
 function processResults(productInfo) {
         $("#partList").empty();
         
-    for (var i = 1; i<(productInfo.length + 1); i++)
+    for (var i = 1; i<productInfo.length; i++)
         {
             //display the first task in an array of tasks. alert(tasks[2].Task)
             $("#partList").append("<li><a class=" + partButton +" id=" + i  + " >" +productInfo[i].ProductName+"</a></li>"); //#partList where to show list in html. productInfo[i] is database. productInfo is attribute
