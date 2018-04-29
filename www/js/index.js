@@ -141,7 +141,7 @@ function processResults(productInfo) {
     Backendless.Data.of( "productInfo" ).findById( this.id )
     .then( function( result ) {
     //data about event here
-    console.log("Name from array: " + productInfo[this.id].ProductName);
+    console.log("Name from array: " + productInfo[this.id + 1].ProductName);
     $("#headerPartName").append(this.id.ProductName);
     })
     .catch( function( error ) {
