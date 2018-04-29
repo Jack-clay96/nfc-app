@@ -137,7 +137,7 @@ function processResults(productInfo) {
 
     $(".partButton").click(function(){
     console.log(this.id);
-    console.log(this.objectId);
+    console.log(this.id.objectId);
     //query backendless for parts matching this part ID. FOR GETTING DATA SPECIFIC FOR Part
     Backendless.Data.of( "productInfo" ).findById( this.id )
     .then( function( result ) {
