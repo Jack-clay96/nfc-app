@@ -126,10 +126,10 @@ $(document).on("pageshow","#homePage", onPageShow);
 function processResults(productInfo) {
         $("#partList").empty();
         
-    for (var i = 0; i<productInfo.length; i++)
+    for (var i = 1; i<(productInfo.length + 1); i++)
         {
             //display the first task in an array of tasks. alert(tasks[2].Task)
-            $("#partList").append("<li><a class=" + partButton +" id=" + (i+1)  + " >" +productInfo[i].ProductName+"</a></li>"); //#partList where to show list in html. productInfo[i] is database. productInfo is attribute
+            $("#partList").append("<li><a class=" + partButton +" id=" + i  + " >" +productInfo[i].ProductName+"</a></li>"); //#partList where to show list in html. productInfo[i] is database. productInfo is attribute
         }
             
         //refresh the listview
@@ -142,7 +142,7 @@ function processResults(productInfo) {
     .then( function( result ) {
     //data about event here
     console.log("Name from array: " + productInfo[this.id].ProductName);
-    $("#headerPartName").append(this.id.ProductName);
+    $("#headerPartName").append(productInfo[this.id].ProductName);
     })
     .catch( function( error ) {
         
