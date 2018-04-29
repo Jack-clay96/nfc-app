@@ -15,6 +15,11 @@ h1{
     color: white;
 }
 
+h2{
+    text-align: left;
+    color: white;
+}
+
 .loginButton {
     width: 150px !important;
     height: 40px !important;
