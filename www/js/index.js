@@ -167,10 +167,10 @@ function optionListResults(productInfo){
     
     for (var i = 0; i<productInfo.length; i++)
         {
-            $("#partList").append("<li>" + productInfo[i].ProductName + "</li>");
+            $("#selectPartName").append("<li>" + productInfo[i].ProductName + "</li>");
         }
-            //refresh the listview
-        $("#partList").listview("refresh");
+        //refresh the listview
+        $("#selectPartName").listview("refresh");
 }
 
 // ADDING A PART - USING BUTTON
