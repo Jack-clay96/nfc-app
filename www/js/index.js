@@ -172,8 +172,6 @@ function onAddPart() {
     newPart.Location = Locationtext;
     newPart.Description = Descriptiontext;
     Backendless.Data.of("productInfo").save(newPart).then(saved).catch(error);
-    // call list function
-        Backendless.Data.of("productInfo").find(dataQueryBuilder).then(processResults).catch(error);
 	}
 
 function saved(savedTask) {
