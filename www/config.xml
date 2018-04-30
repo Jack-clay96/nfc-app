@@ -24,7 +24,5 @@ ID is seen by phone - same name might cause issue-->
 	<access origin="*"/>
    	<plugin name="cordova-plugin-whitelist" version="1" />
     <plugin name="phonegap-nfc" source="npm" /> <!--NFC -->
-    <plugin name = "cordova-plugin-local-notification" version ="0.8"/>  <!-- Toast -->
-    <plugin name = "cordova-plugin-dialogs"/> 
     
 </widget>
