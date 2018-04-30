@@ -10,6 +10,7 @@ dataQueryBuilder.setSortBy( ["created"] );
 $(document).on("pageshow","#homePage", onPageShow);
 $(document).on("click", "#addConfirmButton", onAddPart);
 $(document).on("pageshow","#settingsPage", onsettingPageShow);
+$(document).on("click", "#editConfirmButton", onEditPart);
 
 // device APIs are available
     function onDeviceReady() {
