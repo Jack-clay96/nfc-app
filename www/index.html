@@ -14,25 +14,44 @@
 </head>
     
 <body onload="onDeviceReady()"> <!--Need TO DELETE ONLOAD ON COMPLETION OF APP -->
-  <!--Home Page -->
-<div data-role="page" id="homePage" class="homeBG">
-    <h1 class="header">ZX-Lidar</h1>
-    <a href="#myPanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-mini ui-btn-icon-notext"></a>
-        <div role="main" class="loginForm">
-            <input type="text" id="username" placeholder="Search"/>
-            <a class="search" id="searchConfirm" data-role="button" data-icon="search" data-iconpos='right'>Search </a> <br>     
-                <div class="ui-content ui-body-b">
-                    
-                    <!-- List of parts Here -->
-                    <ul id='partList' data-role="listview">
-                        <li>Part 1</li>
-                        <li>Part 2</li>
-                    </ul>
-                </div>
-        </div>
-</div>  
-    
 
+            <!--Settings page -->
+<div data-role="page" id="settingsPage" class="homeBG">
+    <div role="main" calss="ui-content">
+        <h1 data-icon="home">Settings</h1>
+        <a href="#myPanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-mini ui-btn-icon-notext"></a>
+            <div class="ui-content ui-body-b">
+                <!--Add Part -->
+                <h2>Add Part</h2>
+                <input type="text" id="newPartName" placeholder="Enter New Part Name"/>
+                <input type="number" id="newQuantity" placeholder="Enter New Quantity"/>
+                <input type="text" id="newLocation" placeholder="Enter New Location"/>
+                <input type="text" id="newDescription" placeholder="Enter New Description"/>
+                <button id="addConfirmButton" type="submit">Confirm</button>
+            </div>
+            <br>
+            <div class="ui-content ui-body-b">
+                <!--Edit Part -->
+                <h2>Edit Part</h2>
+                <select type="text" id="selectPartName" placeholder="Select Part"> 
+                <option value="">option1</option>
+                </select>
+                <input type="text" id="editLocation" placeholder="New Location"/>
+                <button id="editConfirmButton" type="submit">Confirm</button>
+            </div>
+            <br>
+            <div class="ui-content ui-body-b">
+                <!--Edit Part -->
+                <h2>Delete Part</h2>
+                <select type="text" id="deletePartName" placeholder="Select Part"> 
+                <option value="">option1</option>
+                </select>
+                <button id="deleteConfirmButton" type="submit">Confirm</button>
+            </div>
+    </div>
+</div>
+    
+    
    <!--Login Page --> 
 <div data-role="page" id="loginPage" class = "BG">
         
@@ -70,39 +89,23 @@
     </div>
 </div>
 
-        <!--Settings page -->
-<div data-role="page" id="settingsPage" class="homeBG">
-    <div role="main" calss="ui-content">
-        <h1 data-icon="home">Settings</h1>
-        <a href="#myPanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-mini ui-btn-icon-notext"></a>
-            <div class="ui-content ui-body-b">
-                <!--Add Part -->
-                <h2>Add Part</h2>
-                <input type="text" id="newPartName" placeholder="Enter New Part Name"/>
-                <input type="text" id="newLocation" placeholder="Enter New Location"/>
-                <button id="addConfirmButton" type="submit">Confirm</button>
-            </div>
-            <br>
-            <div class="ui-content ui-body-b">
-                <!--Edit Part -->
-                <h2>Edit Part</h2>
-                <select type="text" id="selectPartName" placeholder="Select Part"> 
-                <option value="">option1</option>
-                </select>
-                <input type="text" id="editLocation" placeholder="New Location"/>
-                <button id="addConfirmButton" type="submit">Confirm</button>
-            </div>
-            <br>
-            <div class="ui-content ui-body-b">
-                <!--Edit Part -->
-                <h2>Delete Part</h2>
-                <select type="text" id="deletePartName" placeholder="Select Part"> 
-                <option value="">option1</option>
-                </select>
-                <button id="addConfirmButton" type="submit">Confirm</button>
-            </div>
-    </div>
-</div>
+  <!--Home Page -->
+<div data-role="page" id="homePage" class="homeBG">
+    <h1 class="header">ZX-Lidar</h1>
+    <a href="#myPanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-mini ui-btn-icon-notext"></a>
+        <div role="main" class="loginForm">
+            <input type="text" id="username" placeholder="Search"/>
+            <a class="search" id="searchConfirm" data-role="button" data-icon="search" data-iconpos='right'>Search </a> <br>     
+                <div class="ui-content ui-body-b">
+                    
+                    <!-- List of parts Here -->
+                    <ul id='partList' data-role="listview">
+                        <li>Part 1</li>
+                        <li>Part 2</li>
+                    </ul>
+                </div>
+        </div>
+</div>  
     
     <!--Part page -->
     <div data-role="page" id="partPage" class="homeBG">

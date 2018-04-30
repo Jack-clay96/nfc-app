@@ -8,6 +8,7 @@ var partButton = "partButton";
 var dataQueryBuilder = Backendless.DataQueryBuilder.create()
 dataQueryBuilder.setSortBy( ["created"] );
 $(document).on("pageshow","#homePage", onPageShow);
+$(document).on("click", "#addConfirmButton", onAddPart);
 
 // device APIs are available
     function onDeviceReady() {
@@ -149,11 +150,36 @@ function processResults(productInfo) {
         
         console.log("db error: " + error);
     });
-        
+         
     console.log("button clicked");
     location.href="#partPage";
     });
 }
+
+
+// ADDING A TASK - USING BUTTON
+function onAddPart() {
+    console.log("add task button clicked");
+    //get text input from field
+    var Parttext = $("#newPartName").val();
+    var Quantitytext = $("#newQuantity").val();
+    var Locationtext = $("#newLocation").val();
+    var Descriptiontext = $("#newDescription").val();
+    //Adding to backendless
+    var newPart = {};
+    newPart.ProductName = Parttext;
+    newPart.Quantity = Quantitytext;
+    newPart.Location = Locationtext;
+    newPart.Description = Descriptiontext;
+    Backendless.Data.of("productInfo").save(newPart).then(saved).catch(error);
+    // call list function
+        Backendless.Data.of("productInfo").find(dataQueryBuilder).then(processResults).catch(error);
+	}
+
+function saved(savedTask) {
+console.log( "new Contact instance has been saved" + savedTask);
+}
+
 /* Errors */
     function error(err) {
         alert("database error: " + err);
