@@ -167,9 +167,9 @@ function optionListResults(productInfo){
     
     for (var i = 0; i<productInfo.length; i++)
         {
-            $("#selectPartName").append("<li>" + productInfo[i].ProductName + "</li>");
+            $("#selectPartName").append("<option>" + productInfo[i].ProductName + "</option>");
         }
-        //refresh the listview
+            //refresh the listview
         $("#selectPartName").listview("refresh");
 }
 
