@@ -196,6 +196,7 @@ function onEditPart() {
     var editPart = {};
     if($("#selectPartName").val() === editPart.ProductName)
         {
+            console.log("got to here")
             //get text input from field
             var Locationtext = $("#editLocation").val();
             editPart.Location = Locationtext;
