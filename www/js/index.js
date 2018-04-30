@@ -169,8 +169,6 @@ function optionListResults(productInfo){
         {
             $("#selectPartName").append("<option>" + productInfo[i].ProductName + "</option>");
         }
-            //refresh the listview
-        $("#selectPartName").listview("refresh");
 }
 
 // ADDING A PART - USING BUTTON
