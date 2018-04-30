@@ -9,6 +9,7 @@ var dataQueryBuilder = Backendless.DataQueryBuilder.create()
 dataQueryBuilder.setSortBy( ["created"] );
 $(document).on("pageshow","#homePage", onPageShow);
 $(document).on("click", "#addConfirmButton", onAddPart);
+$(document).on("pageshow","#settingsPage", onsettingPageShow);
 
 // device APIs are available
     function onDeviceReady() {
@@ -156,10 +157,25 @@ function processResults(productInfo) {
     });
 }
 
+/* SETTINGS PART PAGE */
+ function onsettingPageShow() {
+	console.log("Setting page shown");
+    Backendless.Data.of("productInfo").find(dataQueryBuilder).then(optionListResults).catch(error); // find (...) is used here to order the list by created.
+    }
+function optionListResults(productInfo){
+        $("#selectPartName").empty();
+    
+    for (var i = 0; i<productInfo.length; i++)
+        {
+            $("#partList").append("<li>" + productInfo[i].ProductName + "</li>");
+        }
+            //refresh the listview
+        $("#partList").listview("refresh");
+}
 
-// ADDING A TASK - USING BUTTON
+// ADDING A PART - USING BUTTON
 function onAddPart() {
-    console.log("add task button clicked");
+    console.log("add Part button clicked");
     //get text input from field
     var Parttext = $("#newPartName").val();
     var Quantitytext = $("#newQuantity").val();
@@ -174,9 +190,23 @@ function onAddPart() {
     Backendless.Data.of("productInfo").save(newPart).then(saved).catch(error);
 	}
 
+// EDITING A PART - USING BUTTON
+function onEditPart() {
+    console.log("Edit Part button clicked");
+    
+    var editPart = {};
+    if($("#selectPartName").val() === editPart.ProductName)
+        {
+            //get text input from field
+            var Locationtext = $("#editLocation").val();
+            editPart.Location = Locationtext;
+            Backendless.Data.of("productInfo").save(editPart).then(saved).catch(error);
+        }
+}
+
 function saved(savedTask) {
     console.log( "new Contact instance has been saved" + savedTask);
-    alert("Part has been added");
+    alert("Database has been updated");
 }
 
 /* Errors */
