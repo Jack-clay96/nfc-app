@@ -175,7 +175,8 @@ function onAddPart() {
 	}
 
 function saved(savedTask) {
-console.log( "new Contact instance has been saved" + savedTask);
+    console.log( "new Contact instance has been saved" + savedTask);
+    createMessage("The first message!", 3000);
 }
 
 /* Errors */
