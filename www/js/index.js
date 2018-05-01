@@ -10,7 +10,7 @@ dataQueryBuilder.setSortBy( ["created"] );
 $(document).on("pageshow","#homePage", onPageShow);
 $(document).on("click", "#addConfirmButton", onAddPart);
 $(document).on("pageshow","#settingsPage", onsettingPageShow);
-$(document).on("click", "#editConfirmButton", onEditPart);
+$(document).on("click", "#deleteConfirmButton", onDeletePart);
 
 // device APIs are available
     function onDeviceReady() {
@@ -139,29 +139,19 @@ function processResults(productInfo) {
         $("#partList").listview("refresh");
     
     $(".partButton").click(function(){
+        var arrayId = this.id;
+        $("#headerPartName").empty();
+        $("#infoPartDesc").empty();
         
         console.log(productInfo.length);
-        
-        var arrayId = this.id;
         console.log("This is arrayID: " + arrayId);
-        console.log(productInfo[arrayId].ProductName); //This now works
+        console.log(productInfo[arrayId].ProductName);
         
-    /*    
-    //query backendless for parts matching this part ID. FOR GETTING DATA SPECIFIC FOR Part
-    Backendless.Data.of( "productInfo" ).findById( productInfo[arrayId].objectId )
-    .then( function( result ) {
-    //data about event here
-    console.log("Name from array: " + productInfo[arrayId].ProductName);
-    $("#headerPartName").append(productInfo[arrayId].ProductName);
-    })
-    .catch( function( error ) {
+        $("#headerPartName").append(productInfo[arrayId].ProductName);
+        $("#infoPartDesc").append(productInfo[arrayId].Description);
         
-        console.log("db error: " + error);
-    });
-         
-    console.log("button clicked");
-    location.href="#partPage";
-    */
+        
+        location.href = "#partPage";
     });
 
     }
@@ -198,19 +188,12 @@ function onAddPart() {
     Backendless.Data.of("productInfo").save(newPart).then(saved).catch(error);
 	}
 
-// EDITING A PART - USING BUTTON
-function onEditPart() {
-    console.log("Edit Part button clicked");
-    
-    var editPart = {};
-    if($("#selectPartName").val() === editPart.ProductName) //This no work
-        {
-            console.log("got to here");
-            //get text input from field
-            var Locationtext = $("#editLocation").val();
-            editPart.Location = Locationtext;
-            Backendless.Data.of("productInfo").save(editPart).then(saved).catch(error);
-        }
+// Delete A PART - USING BUTTON
+function onDeletePart() {
+    console.log("Delete Part button clicked");
+    var deletePart = {};
+    Backendless.Data.of("productInfo").delete(deletePart).then(saved).catch(error);
+
 }
 
 function saved(savedTask) {
