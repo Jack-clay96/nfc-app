@@ -139,8 +139,14 @@ function processResults(productInfo) {
         $("#partList").listview("refresh");
     
     $(".partButton").click(function(){
+        
+        console.log(productInfo.length);
+        
+        
     var arrayId = this.id + 1;
-    console.log(productInfo[arrayId].ProductName);
+    console.log(arrayId);
+        
+    /*    
     //query backendless for parts matching this part ID. FOR GETTING DATA SPECIFIC FOR Part
     Backendless.Data.of( "productInfo" ).findById( productInfo[arrayId].objectId )
     .then( function( result ) {
@@ -155,9 +161,12 @@ function processResults(productInfo) {
          
     console.log("button clicked");
     location.href="#partPage";
+    */
     });
-}
 
+    }
+
+            
 /* SETTINGS PART PAGE */
  function onsettingPageShow() {
 	console.log("Setting page shown");
