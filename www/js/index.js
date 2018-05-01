@@ -144,7 +144,7 @@ function processResults(productInfo) {
         
         var arrayId = this.id;
         console.log("This is arrayID: " + arrayId);
-        console.log(productInfo[arrayId].ProductName);
+        console.log(productInfo[arrayId].ProductName); //This now works
         
     /*    
     //query backendless for parts matching this part ID. FOR GETTING DATA SPECIFIC FOR Part
