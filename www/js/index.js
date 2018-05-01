@@ -10,7 +10,6 @@ dataQueryBuilder.setSortBy( ["created"] );
 $(document).on("pageshow","#homePage", onPageShow);
 $(document).on("click", "#addConfirmButton", onAddPart);
 $(document).on("pageshow","#settingsPage", onsettingPageShow);
-$(document).on("click", "#deleteConfirmButton", onDeletePart);
 
 // device APIs are available
     function onDeviceReady() {
@@ -152,14 +151,6 @@ function processResults(productInfo) {
         
         location.href = "#partPage";
     });
-    
-    // Delete A PART - USING BUTTON
-   $(".deleteConfirmButton").click(function(){
-    console.log("Delete Part button clicked");
-    var deletePart = {};
-    Backendless.Data.of("productInfo").delete(deletePart[arrayId]).then(saved).catch(error);
-   });
-
     }
 
             
@@ -175,6 +166,13 @@ function optionListResults(productInfo){
         {
             $("#selectPartName").append("<option>" + productInfo[i].ProductName + "</option>");
         }
+    
+        // Delete A PART - USING BUTTON
+   $(".deleteConfirmButton").click(function(){
+    console.log("Delete Part button clicked");
+    var deletePart = {};
+    Backendless.Data.of("productInfo").delete(deletePart[arrayId]).then(saved).catch(error);
+   });
 }
 
 // ADDING A PART - USING BUTTON
