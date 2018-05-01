@@ -158,6 +158,13 @@ function processResults(productInfo) {
  function onsettingPageShow() {
 	console.log("Setting page shown");
     Backendless.Data.of("productInfo").find(dataQueryBuilder).then(optionListResults).catch(error); // find (...) is used here to order the list by created.
+     
+    // Delete A PART - USING BUTTON
+   $("#deleteConfirmButton").click(function(){
+    console.log("Delete Part button clicked");
+    var deletePart = {};
+    Backendless.Data.of("productInfo").delete(deletePart[arrayId]).then(saved).catch(error);
+   });
     }
 function optionListResults(productInfo){
         $("#selectPartName").empty();
@@ -166,14 +173,6 @@ function optionListResults(productInfo){
         {
             $("#selectPartName").append("<option>" + productInfo[i].ProductName + "</option>");
         }
-    $("#selectPartName").listview("refresh");
-    
-        // Delete A PART - USING BUTTON
-   $("#deleteConfirmButton").click(function(){
-    console.log("Delete Part button clicked");
-    var deletePart = {};
-    Backendless.Data.of("productInfo").delete(deletePart[arrayId]).then(saved).catch(error);
-   });
 }
 
 // ADDING A PART - USING BUTTON
