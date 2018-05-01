@@ -142,9 +142,9 @@ function processResults(productInfo) {
         
         console.log(productInfo.length);
         
-        
-    var arrayId = this.id + 1;
-    console.log(arrayId);
+        var arrayId = this.id + 1;
+        console.log("This is arrayID: " + arrayId);
+        console.log(this.ProductName);
         
     /*    
     //query backendless for parts matching this part ID. FOR GETTING DATA SPECIFIC FOR Part
