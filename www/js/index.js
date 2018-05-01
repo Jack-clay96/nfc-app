@@ -150,8 +150,15 @@ function processResults(productInfo) {
         $("#headerPartName").append(productInfo[arrayId].ProductName);
         $("#infoPartDesc").append(productInfo[arrayId].Description);
         
-        
         location.href = "#partPage";
+        
+        
+        // Delete A PART - USING BUTTON
+   $(".deleteConfirmButton").click(function(){
+    console.log("Delete Part button clicked");
+    var deletePart = {};
+    Backendless.Data.of("productInfo").delete(deletePart[arrayId]).then(saved).catch(error);
+   }
     });
 
     }
@@ -187,14 +194,6 @@ function onAddPart() {
     newPart.Description = Descriptiontext;
     Backendless.Data.of("productInfo").save(newPart).then(saved).catch(error);
 	}
-
-// Delete A PART - USING BUTTON
-function onDeletePart() {
-    console.log("Delete Part button clicked");
-    var deletePart = {};
-    Backendless.Data.of("productInfo").delete(deletePart).then(saved).catch(error);
-
-}
 
 function saved(savedTask) {
     console.log( "new Contact instance has been saved" + savedTask);
