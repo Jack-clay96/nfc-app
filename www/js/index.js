@@ -9,7 +9,7 @@ var dataQueryBuilder = Backendless.DataQueryBuilder.create()
 dataQueryBuilder.setSortBy( ["created"] );
 $(document).on("pageshow","#homePage", onPageShow);
 $(document).on("click", "#addConfirmButton", onAddPart);
-$(document).on("pageshow","#settingsPage", onsettingPageShow);
+$(document).on("pageshow","#settingsPage", onSettingPageShow);
 
 // device APIs are available
     function onDeviceReady() {
@@ -168,9 +168,14 @@ function processResults(productInfo) {
     });
     }
 
+ function onSettingPageShow() {
+	console.log("Setting page shown");
+    Backendless.Data.of("productInfo").find(dataQueryBuilder).then(settingPage).catch(error); // find (...) is used here to order the list by created.
+    
+    }
             
 /* SETTINGS PART PAGE */
- function onsettingPageShow() {
+ function settingPage() {
 	console.log("Setting page shown");
     Backendless.Data.of("productInfo").find(dataQueryBuilder).then(optionListResults).catch(error); // find (...) is used here to order the list by created.
     }
@@ -186,8 +191,7 @@ function optionListResults(productInfo){
    $("#deleteConfirmButton").click(function(){
     console.log("Delete Part button clicked");
     var arrayId = this.id;
-    deletePart.ProductName = deleteParttext;
-    Backendless.Data.of("productInfo").remove(deletePart[arrayId]).then(saved).catch(error);
+    Backendless.Data.of("productInfo").remove(productInfo[arrayId]).then(saved).catch(error);
    });
     
     
