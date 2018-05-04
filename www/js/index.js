@@ -187,6 +187,18 @@ function processResults(productInfo) {
 	console.log("Setting page shown");
     Backendless.Data.of("productInfo").find(dataQueryBuilder).then(optionListResults).catch(error); // find (...) is used here to order the list by created.
     }
+function optionListResults(productInfo){
+        $("#selectPartName").empty();
+    
+    for (var i = 0; i<productInfo.length; i++)
+        {
+            $("#selectPartName").append("<select > <option>" + productInfo[i].ProductName + "</option> </select");
+            console.log(i);
+        }
+    
+
+    
+}
 
 // ADDING A PART - USING BUTTON
 function onAddPart() {
