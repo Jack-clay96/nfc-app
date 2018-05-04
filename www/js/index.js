@@ -163,7 +163,7 @@ function processResults(productInfo) {
    $("#deleteConfirmButton").click(function(){
     console.log("Delete Part button clicked");
     var deletePart = {};
-    Backendless.Data.of("productInfo").delete(deletePart[arrayId]).then(saved).catch(error); //arraryID not found here
+    Backendless.Data.of("productInfo").remove(deletePart[arrayId]).then(saved).catch(error); //arraryID not found here
    });
     }
 function optionListResults(productInfo){
