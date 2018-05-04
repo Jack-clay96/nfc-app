@@ -179,7 +179,7 @@ function processResults(productInfo) {
     console.log("Delete Part button clicked");
     var deletePart = {};
     var deleteParttext = $("#selectPartName").val();
-    deletePart.ProductName = selectPartNametext;
+    deletePart.ProductName = deleteParttext;
     Backendless.Data.of("productInfo").remove(deletePart).then(saved).catch(error); //arraryID not found here
    });
     }
