@@ -100,16 +100,14 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
         location.href="#nfcscan";
     nfc.addNdefListener (
         function (nfcEvent) {
-            console.log("this function start");
             var tag = nfcEvent.tag,
             ndefMessage = tag.ndefMessage;
 
             // a payload that can be converted to a string.
             alert(nfc.bytesToString(ndefMessage[0].payload).substring(3)); //Shows the written message of the NFC tag
-            console.log("this function end");
         },
         );
-        updateDisplay();
+       // updateDisplay();
 });     
     
 // Write to NFC tag
@@ -120,14 +118,15 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
 //Write implementation
         function writeTag (nfcEvent) {
             console.log("writeTag function ran");
-            message = [ndef.textRecord("#writeProduct"), ndef.textRecord("#writeQuantity")];
+            message = [ndef.textRecord("Product:" + "#writeProduct"), ndef.textRecord("Quantity: " + "#writeQuantity")];
             nfc.write(message);
+            console.log("message");
         }
 //Listener
         nfc.addNdefListener(
             writeTag
         );
-    updateDisplay();
+   // updateDisplay();
     });
 }
 
