@@ -118,7 +118,7 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
 //Write implementation
         function writeTag (nfcEvent) {
             console.log("writeTag function ran");
-            message = [ndef.textRecord(("New Product Name" + "Quantity: "))];
+            message = [ndef.textRecord(("New Product Name. Quantity: 5"))];
             nfc.write(message);
             console.log(message);
         }
