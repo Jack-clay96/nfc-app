@@ -111,12 +111,11 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
         );
         updateDisplay();
 });     
-
     
 // Write to NFC tag
-    $( "#write" ).click(function() {
+    $( "#WritePage" ).click(function() {
         console.log("Button clicked");
-        location.href="#nfcwrite";
+        location.href="#WritePage";
 
 //Write implementation
         function writeTag (nfcEvent) {
