@@ -8,7 +8,6 @@ var partButton = "partButton";
 var dataQueryBuilder = Backendless.DataQueryBuilder.create()
 dataQueryBuilder.setSortBy( ["created"] );
 $(document).on("pageshow","#homePage", onPageShow);
-$(document).on("pageshow","#WritePage", WriteNFC);
 $(document).on("click", "#addConfirmButton", onAddPart);
 $(document).on("pageshow","#settingsPage", onSettingPageShow);
 
@@ -94,8 +93,9 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
             .then( userLoggedOut )
             .catch( gotError );
     });        
-}
+          
 // Read NDEF formatted NFC Tags
+    $( "#scanAction" ).click(function() {
         console.log("Button clicked");
         location.href="#nfcscan";
     nfc.addNdefListener (
@@ -106,26 +106,28 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
             // a payload that can be converted to a string.
             alert(nfc.bytesToString(ndefMessage[0].payload).substring(3)); //Shows the written message of the NFC tag
         },
-        ); 
+        );
+       // updateDisplay();
+});     
     
 // Write to NFC tag
-    function WriteNFC() {
+    $( "#writeButton" ).click(function() {
         console.log("Button clicked");
         location.href="#WritePage";
 
 //Write implementation
         function writeTag (nfcEvent) {
             console.log("writeTag function ran");
-            message = [ndef.textRecord("New Name"), ndef.textRecord("5")];
+            message = [ndef.textRecord("New Product Name"), ndef.textRecord("5")];
             nfc.write(message);
-            console.log("The mEssage is: "+ message);
+            console.log(message);
         }
 //Listener
         nfc.addNdefListener(
             writeTag
         );
    // updateDisplay();
-   // });
+    });
 }
 
 /* Home Page */
