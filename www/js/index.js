@@ -121,6 +121,7 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
             console.log("writeTag function ran");
             message = [ndef.textRecord("hello, world")];
             nfc.write(message);
+            console.log("Writing complete");
         }
    // updateDisplay();
         
