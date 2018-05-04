@@ -95,7 +95,7 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
     });        
           
 // Read NDEF formatted NFC Tags
-    $( "#scanAction" ).click(function() {
+  //  $( "#scanAction" ).click(function() {
         console.log("Button clicked");
         location.href="#nfcscan";
     nfc.addNdefListener (
@@ -108,10 +108,10 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
         },
         );
        // updateDisplay();
-});     
+//});     
     
 // Write to NFC tag
-    $( "#writeButton" ).click(function() {
+    //$( "#writeButton" ).click(function() {
         console.log("Button clicked");
         location.href="#WritePage";
 
@@ -120,14 +120,14 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
             console.log("writeTag function ran");
             message = [ndef.textRecord("New Name"), ndef.textRecord("5")];
             nfc.write(message);
-            console.log("The mEssage is: "+message);
+            console.log("The mEssage is: "+ message);
         }
 //Listener
         nfc.addNdefListener(
             writeTag
         );
    // updateDisplay();
-    });
+   // });
 }
 
 /* Home Page */
