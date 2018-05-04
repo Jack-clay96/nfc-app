@@ -119,7 +119,7 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
         function writeTag (nfcEvent) {
             console.log("writeTag function ran");
             message = [ndef.textRecord("New Product Name")];
-            nfc.write(message);
+            nfc.write(message[0]);
             console.log(message);
         }
    // updateDisplay();
