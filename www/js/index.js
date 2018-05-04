@@ -178,7 +178,9 @@ function processResults(productInfo) {
    $("#deleteConfirmButton").click(function(){
     console.log("Delete Part button clicked");
     var deletePart = {};
-    Backendless.Data.of("productInfo").remove(deletePart[arrayId]).then(saved).catch(error); //arraryID not found here
+    var deleteParttext = $("#selectPartName").val();
+    deletePart.ProductName = selectPartNametext;
+    Backendless.Data.of("productInfo").remove(deletePart).then(saved).catch(error); //arraryID not found here
    });
     }
 function optionListResults(productInfo){
