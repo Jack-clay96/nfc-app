@@ -126,12 +126,11 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
             console.log(message);
         }
    // updateDisplay();
-        
-        //Listener
+    });
+            //Listener
         nfc.addNdefListener(
             writeTag
         );
-    });
 }
 
 /* Home Page */
