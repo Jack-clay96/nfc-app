@@ -10,7 +10,6 @@ dataQueryBuilder.setSortBy( ["created"] );
 $(document).on("pageshow","#homePage", onPageShow);
 $(document).on("click", "#addConfirmButton", onAddPart);
 $(document).on("pageshow","#settingsPage", onSettingPageShow);
-$(document).on("pageshow","#readPage", readTag);
 
 // device APIs are available
     function onDeviceReady() {
@@ -96,7 +95,7 @@ $(document).on("pageshow","#readPage", readTag);
     });        
           
 // Read NDEF formatted NFC Tags
-    function readTag() {
+    $( "#scanAction" ).click(function() {
         console.log("Button clicked");
         location.href="#nfcscan";
     nfc.addNdefListener (
