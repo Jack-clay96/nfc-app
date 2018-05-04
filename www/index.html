@@ -83,11 +83,9 @@
   <!--Home Page -->
 <div data-role="page" id="homePage" class="homeBG">
     <h1 class="header">ZX-Lidar</h1>
-    <button id="logout" class="logout">Logout</button>
+    <button id="logout" class="logoutButton">Logout</button>
     <a href="#myPanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-mini ui-btn-icon-notext"></a>
-        <div role="main" class="loginForm">
-            <input type="text" id="username" placeholder="Search"/>
-            <a class="search" id="searchConfirm" data-role="button" data-icon="search" data-iconpos='right'>Search </a> <br>     
+        <div role="main" class="loginForm">   
                 <div class="ui-content ui-body-b">
                     
                     <!-- List of parts Here -->
@@ -129,7 +127,19 @@
                 </li>
             </ul>
         </div>
-        
     </div>
+    
+<!-- Scan Page -->
+<div data-role="page" id="readPage" class="homeBG">
+    <h1>Scan Page</h1>
+    <a href="#myPanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-mini ui-btn-icon-notext"></a>
+    <div class="ui-content ui-body-b">
+    Scan any Tag to read
+    <br>
+    <input class ="loginField" type="text" id="writeProduct" placeholder="Enter Product Name"/>
+    <input class ="loginField" type="text" id="writeQuantity" placeholder="Enter Quantity"/>
+    <button id="write" type="submit">Confirm Write</button>
+    </div>
+</div>
 </body>
 </html>
