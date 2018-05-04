@@ -114,7 +114,7 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
     $( "#writeButton" ).click(function() {
         console.log("Button clicked");
         location.href="#WritePage";
-
+        
 //Write implementation
         function writeTag (nfcEvent) {
             console.log("writeTag function ran");
@@ -122,12 +122,13 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
             nfc.write(message);
             console.log(message);
         }
-//Listener
+   // updateDisplay();
+    });
+        
+        //Listener
         nfc.addNdefListener(
             writeTag
         );
-   // updateDisplay();
-    });
 }
 
 /* Home Page */
