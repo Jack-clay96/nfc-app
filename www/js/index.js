@@ -79,6 +79,21 @@ $(document).on("pageshow","#settingsPage", onsettingPageShow);
     /*Home Page */
     $('#myPanel').enhanceWithin().panel();
     
+    //Logout Button
+    $( "#logout" ).click(function() {
+            console.log("logout button clicked");
+        
+        function userLoggedOut()
+        {
+            console.log( "user has been logged out" );
+            location.href="#loginPage";
+        }
+
+            Backendless.UserService.logout()
+            .then( userLoggedOut )
+            .catch( gotError );
+    });        
+          
 // Read NDEF formatted NFC Tags
     $( "#read" ).click(function() {
         console.log("Button clicked");
