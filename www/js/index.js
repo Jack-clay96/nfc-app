@@ -95,6 +95,7 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
     });        
           
 // Read NDEF formatted NFC Tags
+// https://www.npmjs.com/package/phonegap-nfc
     $( "#scanAction" ).click(function() {
         console.log("Button clicked");
         location.href="#nfcscan";
@@ -118,9 +119,8 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
 //Write implementation
         function writeTag (nfcEvent) {
             console.log("writeTag function ran");
-            message = [ndef.textRecord("New Product Name")];
-            nfc.write(message[0]);
-            console.log(message);
+            message = [ndef.textRecord("hello, world")];
+            nfc.write(message);
         }
    // updateDisplay();
         
