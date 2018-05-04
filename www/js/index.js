@@ -8,6 +8,7 @@ var partButton = "partButton";
 var dataQueryBuilder = Backendless.DataQueryBuilder.create()
 dataQueryBuilder.setSortBy( ["created"] );
 $(document).on("pageshow","#homePage", onPageShow);
+$(document).on("pageshow","#WritePage", WriteNFC);
 $(document).on("click", "#addConfirmButton", onAddPart);
 $(document).on("pageshow","#settingsPage", onSettingPageShow);
 
@@ -93,9 +94,8 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
             .then( userLoggedOut )
             .catch( gotError );
     });        
-          
+}
 // Read NDEF formatted NFC Tags
-  //  $( "#scanAction" ).click(function() {
         console.log("Button clicked");
         location.href="#nfcscan";
     nfc.addNdefListener (
@@ -106,12 +106,10 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
             // a payload that can be converted to a string.
             alert(nfc.bytesToString(ndefMessage[0].payload).substring(3)); //Shows the written message of the NFC tag
         },
-        );
-       // updateDisplay();
-//});     
+        ); 
     
 // Write to NFC tag
-    //$( "#writeButton" ).click(function() {
+    function WriteNFC() {
         console.log("Button clicked");
         location.href="#WritePage";
 
