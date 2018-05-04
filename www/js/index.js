@@ -112,23 +112,23 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
     
 // Write to NFC tag
     $( "#writeButton" ).click(function() {
-        console.log("Button clicked");
+        console.log("Write Button clicked");
         location.href="#WritePage";
         
 //Write implementation
         function writeTag (nfcEvent) {
             console.log("writeTag function ran");
-            message = [ndef.textRecord("Product Name:" + "#writeProduct" + "Quantity: " + "#writeQuantity")];
+            message = [ndef.textRecord(("New Product Name" + "Quantity: "))];
             nfc.write(message);
             console.log(message);
         }
    // updateDisplay();
-    });
         
         //Listener
         nfc.addNdefListener(
             writeTag
         );
+    });
 }
 
 /* Home Page */
