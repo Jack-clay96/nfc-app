@@ -120,7 +120,7 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
             console.log("writeTag function ran");
             message = [ndef.textRecord("New Name"), ndef.textRecord("5")];
             nfc.write(message);
-            console.log(message);
+            console.log("The mEssage is: "+message);
         }
 //Listener
         nfc.addNdefListener(
