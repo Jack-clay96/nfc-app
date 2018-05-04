@@ -113,7 +113,7 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
 });     
     
 // Write to NFC tag
-    $( "#WritePage" ).click(function() {
+    $( "#writeButton" ).click(function() {
         console.log("Button clicked");
         location.href="#WritePage";
 

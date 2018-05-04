@@ -16,6 +16,23 @@
     
 <body onload="onDeviceReady()"> <!--Need TO DELETE ONLOAD ON COMPLETION OF APP -->
 
+   <!--Login Page --> 
+<div data-role="page" id="loginPage" class = "BG">
+        
+  	<div role="main" class="ui-content">
+        
+        <h1>NFC Stock Management</h1>
+        
+        <div class ="loginForm">
+             <input class ="loginField" type="text" id="email" placeholder="Email"/>
+             <input type="password" id="password" placeholder="Password"/> <br>
+             <button class="loginButton" id="loginButton" type="submit">Login</button>
+        </div>
+             
+    </div>
+        <div data-role="footer" data-position="fixed"> <a href="#regPage">Register</a> <a href="#forgpassPage">Forgot Password</a></div>
+</div>    
+    
             <!--Settings page -->
 <div data-role="page" id="settingsPage" class="homeBG">
     <div role="main" calss="ui-content">
@@ -40,24 +57,6 @@
                 <button id="deleteConfirmButton" type="submit">Confirm</button>
             </div>
     </div>
-</div>
-    
-    
-   <!--Login Page --> 
-<div data-role="page" id="loginPage" class = "BG">
-        
-  	<div role="main" class="ui-content">
-        
-        <h1>NFC Stock Management</h1>
-        
-        <div class ="loginForm">
-             <input class ="loginField" type="text" id="email" placeholder="Email"/>
-             <input type="password" id="password" placeholder="Password"/> <br>
-             <button class="loginButton" id="loginButton" type="submit">Login</button>
-        </div>
-             
-    </div>
-        <div data-role="footer" data-position="fixed"> <a href="#regPage">Register</a> <a href="#forgpassPage">Forgot Password</a></div>
 </div>
 
 <!--Registration Page -->
@@ -135,11 +134,13 @@
     <a href="#myPanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-mini ui-btn-icon-notext"></a>
     <div class="ui-content ui-body-b">
     <b>Scan any Tag to read Now</b>
-    <button id="writePage" type="submit">Go to Write Page</button>
+    <button id="writeButton" type="submit">Go to Write Page</button>
     </div>
 </div>
     
 <div data-role="page" id="WritePage" class="homeBG">
+    <h1>Write Page</h1>
+    <a href="#myPanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-mini ui-btn-icon-notext"></a>
     <br>
     <div class="ui-content ui-body-b">
     <input class ="loginField" type="text" id="writeProduct" placeholder="Enter Product Name"/>
