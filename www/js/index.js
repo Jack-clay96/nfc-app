@@ -104,7 +104,10 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
             ndefMessage = tag.ndefMessage;
 
             // a payload that can be converted to a string.
-            alert(nfc.bytesToString(ndefMessage[0].payload).substring(3)); //Shows the written message of the NFC tag
+            for (i=0; i<ndefMessage.length;i++)
+                {
+                    alert(nfc.bytesToString(ndefMessage[i].payload).substring(3)); //Shows the written message of the NFC tag   
+                }
         },
         );
        // updateDisplay();
@@ -118,7 +121,7 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
 //Write implementation
         function writeTag (nfcEvent) {
             console.log("writeTag function ran");
-            message = [ndef.textRecord(("New Product Name. Quantity: 5"))];
+            message = [ndef.textRecord("New Product Name", ndef.textRecord("Quantity: 5"))];
             nfc.write(message);
             console.log(message);
         }
