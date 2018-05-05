@@ -95,7 +95,7 @@ $(document).on("pageshow","#settingsPage", onSettingPageShow);
     });        
           
 // Read NDEF formatted NFC Tags
-// https://www.npmjs.com/package/phonegap-nfc
+// NPM. phonegap-nfc(2018). Available at: https://www.npmjs.com/package/phonegap-nfc
     $( "#scanAction" ).click(function() {
         console.log("Button clicked");
         location.href="#nfcscan";
@@ -192,7 +192,7 @@ function optionListResults(productInfo){
     
     for (var i = 0; i<productInfo.length; i++)
         {
-            $("#selectPartName").append("<select > <option>" + productInfo[i].ProductName + "</option> </select");
+            $("#selectPartName").append("<select> <option>" + productInfo[i].ProductName + "</option> </select");
             console.log(i);
         }
     
